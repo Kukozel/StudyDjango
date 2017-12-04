@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from django.test import LiveServerTestCase
+import time
 
 class NewVisitTest(LiveServerTestCase):
     def setUp(self):
@@ -29,12 +30,10 @@ class NewVisitTest(LiveServerTestCase):
         inputbox.send_keys('Buy peacock feathers')
         inputbox.send_keys(Keys.ENTER)
 
+        time.sleep(1)
+
         edith_list_url=self.browser.current_url
         self.assertRegex(edith_list_url,'/lists/.+')
-
-        import time
-        time.sleep(3)
-
         self.check_for_row_in_list_table('1:Buy peacock feathers')
 
         self.browser.quit()
@@ -48,6 +47,7 @@ class NewVisitTest(LiveServerTestCase):
         inputbox.send_keys('Buy milk')
         inputbox.send_keys(Keys.ENTER)
 
+        time.sleep(1)
         francis_list_url=self.browser.current_url
         self.assertRegex(francis_list_url, '/lists/.+')
         self.assertNotEqual(edith_list_url,francis_list_url)
