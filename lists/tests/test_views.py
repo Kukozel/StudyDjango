@@ -30,40 +30,6 @@ class HomePageTest(TestCase):
     #     self.assertIn('itemey 1',response.content.decode())
     #     self.assertIn('itemey 2',response.content.decode())
 
-class ListAndItemModelsTest(TestCase):
-    def test_saving_and_retrieving_items(self):
-        list_=List()
-        list_.save()
-
-        first_item = Item()
-        first_item.text = 'The first(ever) list item'
-        first_item.list=list_
-        first_item.save()
-
-        second_item = Item()
-        second_item.text = 'Item the second'
-        second_item.list=list_
-        second_item.save()
-
-        saved_list=List.objects.first()
-        self.assertEqual(saved_list,list_)
-
-        saved_items=Item.objects.all()
-        self.assertEqual(saved_items.count(),2)
-
-        first_saved_item=saved_items[0]
-        second_saved_item=saved_items[1]
-        self.assertEqual(first_saved_item.text,'The first(ever) list item')
-        self.assertEqual(first_item.list,list_)
-        self.assertEqual(second_saved_item.text,'Item the second')
-        self.assertEqual(second_saved_item.list,list_)
-
-
-    # def test_home_page_only_saves_items_when_necessary(self):
-    #     request=HttpRequest()
-    #     home_page(request)
-    #     self.assertEqual(Item.objects.count(),0)
-
 class ListViewTest(TestCase):
     def test_users_list_template(self):
         list_=List.objects.create()
@@ -142,5 +108,3 @@ class NewItemTest(TestCase):
         correct_list=List.objects.create()
         response = self.client.post('/lists/%d/' % (correct_list.id,))
         self.assertEqual(response.context['list'],correct_list)
-
-
