@@ -3,6 +3,8 @@ from fabric.api import env,local,run
 import random
 
 PEPO_URL='https://github.com/Kukozel/StudyDjango.git'
+env.key_filename = "~/.ssh/Cloud7745"
+
 
 def deploy():
     site_folder='/home/%s/sites/%s' % (env.user,env.host)
@@ -23,12 +25,12 @@ def _get_latest_source(source_folder):
         run('cd %s && git fetch' % (source_folder,))
     else:
         run('git clone %s %s' % (PEPO_URL,source_folder))
-    current_commit=local("git log -n -1 --format=%H",capture=True)
+    current_commit=local("git log -n 1 --format=%H",capture=True)
     run('cd %s && git reset --hard %s' % (source_folder,current_commit))
 
 def _update_settings(source_folder,site_name):
-    settings_path=source_folder+'suplists/settings.py'
-    sed(settings_path,'DEBUG = True","DEBUG = False')
+    settings_path=source_folder+'/superlists/settings.py'
+    sed(settings_path,'DEBUG = True','DEBUG = False')
     sed(settings_path,
         'ALLOWED_HOSTS =.+$',
         'ALLOWED_HOSTS = ["%s"]' % (site_name,)
