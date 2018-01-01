@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Talent Infos</title>
+    <meta name="viewport" content="width=device=width, initial-scale=1.0">
+    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="/static/base.css" rel="stylesheet" media="screen">
+</head>
+<body>
+<div class="container">
+    <nav class="navbar navbar-default" role="navigation">
+        <a class="navbar-brand" href="/">FindTalent</a>
+        <a class="btn navbar-btn navbar-right" id="id_logout" href="{% url 'logout' %}">Log out</a>
+        <span class="navbar-text navbar-right">Logged in as {{ user.email }}</span>
+        <ul class="nav navbar-nav">
+            <li><a href="{% url 'my_lists' user.email %}">My List</a></li>
+        </ul>
+    </nav>
+</div>
+
+
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <div class="panel-group" id="panel">
+
+                {% for info in Infos %}
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <a class="panel-title" data-toggle="collapse" data-parent="#panel"
+                               href="#panel-element-{{ forloop.counter }}">{{ info.userName }}</a>
+                        </div>
+                        <div id="panel-element-{{ forloop.counter }}" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div class="row clearfix">
+                                    <div class="col-md-12 column">
+                                        <table class="table table-hover table-condensed">
+                                            <thead>
+                                            <tr>
+                                                <th>
+                                                    姓名
+                                                </th>
+                                                <th>
+                                                    出生年月
+                                                </th>
+                                                <th>
+                                                    性别
+                                                </th>
+                                                <th>
+                                                    身份证号
+                                                </th>
+                                                <th>
+                                                    籍贯
+                                                </th>
+                                                <th>
+                                                    身高
+                                                </th>
+                                                <th>
+                                                    体重
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr class="success">
+                                                <td>
+                                                    {{ info.userName }}
+                                                </td>
+                                                <td>
+                                                    {{ info.birth }}
+                                                </td>
+                                                <td>
+                                                    {{ info.sex }}
+                                                </td>
+                                                <td>
+                                                    {{ info.idCardNumber }}
+                                                </td>
+                                                <td>
+                                                    {{ info.nativePlace }}
+                                                </td>
+                                                <td>
+                                                    {{ info.height }}
+                                                </td>
+                                                <td>
+                                                    {{ info.weight }}
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                            <thead>
+                                            <tr>
+                                                <th>
+                                                    现所在地
+                                                </th>
+                                                <th>
+                                                    婚姻状况
+                                                </th>
+                                                <th>
+                                                    政治面貌
+                                                </th>
+                                                <th>
+                                                    毕业时间
+                                                </th>
+                                                <th>
+                                                    最高学历
+                                                </th>
+                                                <th>
+                                                    工作经验
+                                                </th>
+                                                <th>
+                                                    工作状态
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr class="success">
+                                                <td>
+                                                    {{ info.nowLocation }}
+                                                </td>
+                                                <td>
+                                                    {{ info.maritalStatus }}
+                                                </td>
+                                                <td>
+                                                    {{ info.politicsStatus }}
+                                                </td>
+                                                <td>
+                                                    {{ info.graduationTime }}
+                                                </td>
+                                                <td>
+                                                    {{ info.highestEducation }}
+                                                </td>
+                                                <td>
+                                                    {{ info.workExperience }}
+                                                </td>
+                                                <td>
+                                                    {{ info.workType }}
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                            <thead>
+                                            <tr>
+                                                <th>
+                                                    现所在地
+                                                </th>
+                                                <th>
+                                                    婚姻状况
+                                                </th>
+                                                <th>
+                                                    政治面貌
+                                                </th>
+                                                <th>
+                                                    毕业时间
+                                                </th>
+                                                <th>
+                                                    最高学历
+                                                </th>
+                                                <th>
+                                                    工作经验
+                                                </th>
+                                                <th>
+                                                    工作状态
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr class="success">
+                                                <td>
+                                                    {{ info.nowLocation }}
+                                                </td>
+                                                <td>
+                                                    {{ info.maritalStatus }}
+                                                </td>
+                                                <td>
+                                                    {{ info.politicsStatus }}
+                                                </td>
+                                                <td>
+                                                    {{ info.graduationTime }}
+                                                </td>
+                                                <td>
+                                                    {{ info.highestEducation }}
+                                                </td>
+                                                <td>
+                                                    {{ info.workExperience }}
+                                                </td>
+                                                <td>
+                                                    {{ info.workType }}
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                            <thead>
+                                            <tr>
+                                                <th>
+                                                    所学专业
+                                                </th>
+                                                <th>
+                                                    求职岗位
+                                                </th>
+                                                <th>
+                                                    职位类别
+                                                </th>
+                                                <th>
+                                                    行业类别
+                                                </th>
+                                                <th>
+                                                    期望工作区域
+                                                </th>
+                                                <th>
+                                                    期望月薪
+                                                </th>
+                                                <th>
+                                                    联系地址
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr class="success">
+                                                <td>
+                                                    {{ info.major }}
+                                                </td>
+                                                <td>
+                                                    {{ info.jobHunt }}
+                                                </td>
+                                                <td>
+                                                    {{ info.huntType }}
+                                                </td>
+                                                <td>
+                                                    {{ info.employmentCategory }}
+                                                </td>
+                                                <td>
+                                                    {{ info.hopeLocation }}
+                                                </td>
+                                                <td>
+                                                    {{ info.hopeSalary }}
+                                                </td>
+                                                <td>
+                                                    {{ info.address }}
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                            <thead>
+                                            <tr>
+                                                <th>
+                                                    第一外语
+                                                </th>
+                                                <th>
+                                                    掌握程度
+                                                </th>
+                                                <th>
+                                                    第二外语
+                                                </th>
+                                                <th>
+                                                    掌握程度
+                                                </th>
+                                                <th>
+                                                    QQ
+                                                </th>
+                                                <th>
+                                                    Email
+                                                </th>
+                                                <th>
+                                                    Tel
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr class="success">
+                                                {% for each in info.foreignFirst %}
+                                                    <td>
+                                                        {{ each }}
+                                                    </td>
+                                                {% endfor %}
+                                                {% for each in info.foreignSecond %}
+                                                    <td>
+                                                        {{ each }}
+                                                    </td>
+                                                {% endfor %}
+                                                <td>
+                                                    {{ info.qq }}
+                                                </td>
+                                                <td>
+                                                    {{ info.telNumber }}
+                                                </td>
+                                                <td>
+                                                    {{ info.email }}
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <table class="table table-hover table-condensed">
+                                            <thead>
+                                            <tr>
+                                                <th>
+                                                    自我评价
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr class="success">
+                                                <td>
+                                                    {{ info.selfAssessment }}
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <table class="table table-hover table-condensed">
+                                            <thead>
+                                            <tr>
+                                                <th>
+                                                    教育经历
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                        </table>
+                                        {% for each in info.education %}
+                                            <table class="table table-hover table-condensed">
+                                                <tbody>
+                                                <thead>
+                                                <tr>
+                                                    <th>
+                                                        学历
+                                                    </th>
+                                                    <th>
+                                                        专业类别
+                                                    </th>
+                                                    <th>
+                                                        毕业时间
+                                                    </th>
+                                                    <th>
+                                                        学校
+                                                    </th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr class="success">
+                                                    <script type="text/javascript">
+                                                        var Dict = {{ each|safe }};
+                                                        dic = new Array();
+                                                        for (info in Dict) {
+                                                            dic[dic.length] = info
+                                                        }
+                                                        for (i = 0; i < 4; i++) {
+                                                            str = '<td>' + Dict[dic[i]] + '</td>';
+                                                            document.write(str);
+                                                        }
+                                                    </script>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                            <hr/>
+                                        {% endfor %}
+                                        <table class="table table-hover table-condensed">
+                                            <thead>
+                                            <tr>
+                                                <th>
+                                                    工作/实践经验
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                        </table>
+                                        {% for each in info.workExps %}
+                                            <table class="table table-hover table-condensed">
+                                                <thead>
+                                                <tr>
+                                                    <th>
+                                                        所在单位
+                                                    </th>
+                                                    <th>
+                                                        职位名称
+                                                    </th>
+                                                    <th>
+                                                        单位行业
+                                                    </th>
+                                                    <th>
+                                                        时间
+                                                    </th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr class="success">
+                                                    <script type="text/javascript">
+                                                        var Dict = {{ each|safe }};
+                                                        dic = new Array();
+                                                        for (info in Dict) {
+                                                            dic[dic.length] = info
+                                                        }
+                                                        for (i = 0; i < 4; i++) {
+                                                            str = '<td>' + Dict[dic[i]] + '</td>';
+                                                            document.write(str);
+                                                        }
+                                                    </script>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                            <table class="table table-hover table-condensed">
+                                                <thead>
+                                                <tr>
+                                                    <th>
+                                                        工作内容/工作业绩
+                                                    </th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr class="success">
+                                                    <script type="text/javascript">
+                                                        var Dict = {{ each|safe }};
+                                                        dic = new Array();
+                                                        for (info in Dict) {
+                                                            dic[dic.length] = info
+                                                        }
+                                                        str = '<td>' + Dict[dic[4]] + '</td>';
+                                                        document.write(str);
+                                                    </script>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                            <hr/>
+                                        {% endfor %}
+                                        <a href="{{ info.url }}">点此进入个人主页</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <nav class="navbar navbar-default" role="navigation">
+        <form class="navbar-form navbar-right">
+            <div class="form-group">
+                <input type="text" class="form-control" name="page" placeholder="1 - {{ Infos.paginator.num_pages }}">
+            </div>
+            <button type="submit" class="btn btn-default" href="?page={{ name }}">跳转</button>
+        </form>
+        {% if Infos.has_next %}
+            <a class="btn navbar-btn navbar-right" href="?page={{ Infos.next_page_number }}">下一页</a>
+        {% endif %}
+        <span class="navbar-text navbar-right">{{ Infos.number }} of {{ Infos.paginator.num_pages }}</span>
+        {% if Infos.has_previous %}
+            <a class="btn navbar-btn navbar-right" href="?page={{ Infos.previous_page_number }}"> 上一页</a>
+        {% endif %}
+
+
+    </nav>
+</div>
+
+<script src="http://code.jquery.com/jquery.min.js"></script>
+<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+<script src="/static/list.js"></script>
+<script src="/static/accounts.js"></script>
+<script>
+    /*global $, Superlists, navigator */
+    $(document).ready(function () {
+        var user = "{{ user.email }}" || null;
+        var token = "{{ csrf_token }}";
+        var urls = {
+            login: "{% url 'persona_login' %}",
+            logout: "{% url 'logout' %}",
+        };
+        Superlists.Accounts.initialize(navigator, user, token, urls);
+    });
+</script>
+</body>
+</html>

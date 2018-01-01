@@ -48,8 +48,5 @@ def my_lists(request,email):
     owner=User.objects.get(email=email)
     return render(request,'my_lists.html',{'owner':owner})
 
-def view_info(request):
-    return render(request,'infos.html')
-
 def register(request):
-    pass
+    return render(request,'register.html')

@@ -2,3 +2,4 @@ Django==1.11.7
 gunicorn==19.7.1
 pytz==2017.3
 requests==2.18.4
+mongoengine==0.15.0

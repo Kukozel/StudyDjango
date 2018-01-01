@@ -1,6 +1,7 @@
 from django.conf.urls import url
 from lists import views
 from django.contrib.auth.views import logout
+from viewInfo.views import view_info
 
 urlpatterns = [
     url(r'^(\d+)/$',views.view_list, name='view_list'),
@@ -9,5 +10,5 @@ urlpatterns = [
     url(r'^login_page$', views.login_page, name='login_page'),
     url(r'^logout$', logout, {'next_page': '/'}, name='logout'),
     url(r'^register$', views.register, name='register'),
-    url(r'^infos$', views.view_info, name='infos'),
+    url(r'^infos$', view_info, name='infos'),
 ]
