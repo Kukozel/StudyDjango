@@ -16,7 +16,7 @@
                 <ul class="nav navbar-nav">
                     <li><a href="{% url 'my_lists' user.email %}">My List</a></li>
                 </ul>
-                <a class="btn navbar-btn navbar-right" id="id_info" href="{% url 'logout'  %}">View Infos</a>
+                <a class="btn navbar-btn navbar-right" id="id_info" href="{% url 'infos'  %}">View Infos</a>
             {% else %}
                 <a class="btn navbar-btn navbar-right" id="id_login" href="{% url 'login_page' %}">Sign in</a>
             {% endif %}

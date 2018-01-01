@@ -1,9 +1,8 @@
 from django.shortcuts import render,redirect
-from lists.models import Item,List
+from lists.models import List
 from lists.forms import ExistingListItemForm,ItemForm
 from django.contrib.auth import get_user_model
 User=get_user_model()
-from accounts.authentication import PersonaAuthenticationBackend
 from django.contrib.auth import authenticate,login
 
 # Create your views here.
@@ -45,10 +44,12 @@ def login_page(request):
         return render(request,'home.html',{'form':ItemForm()})
     return render(request,'login.html')
 
-
 def my_lists(request,email):
     owner=User.objects.get(email=email)
     return render(request,'my_lists.html',{'owner':owner})
+
+def view_info(request):
+    return render(request,'infos.html')
 
 def register(request):
     pass

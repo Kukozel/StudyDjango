@@ -9,5 +9,5 @@ urlpatterns = [
     url(r'^login_page$', views.login_page, name='login_page'),
     url(r'^logout$', logout, {'next_page': '/'}, name='logout'),
     url(r'^register$', views.register, name='register'),
-
+    url(r'^infos$', views.view_info, name='infos'),
 ]
