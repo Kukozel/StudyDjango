@@ -1,7 +1,11 @@
-from django.db import models
+from viewInfo.mongodbInfo import account
 from mongoengine import *
 # Create your models here.
-connect('qzrc', host='139.199.159.233', port=27017 , username='abfahrt', password='abfahrt')
+
+#这里使用了我的服务器
+#账户密码并未上传至git
+ac=account()
+connect(ac.db, host=ac.host, port=27017 , username=ac.user, password=ac.password)
 
 class Info(Document):
     url = StringField()
@@ -34,4 +38,4 @@ class Info(Document):
     maritalStatus= StringField()
     major= StringField()
     email= StringField()
-    meta = { 'collection': 'infos'} # 指明连接数据库的哪张表
+    meta = { 'collection': ac.collection} # 指明连接数据库的哪张表

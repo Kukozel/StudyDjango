@@ -5,6 +5,7 @@ import random
 PEPO_URL='https://github.com/Kukozel/StudyDjango.git'
 env.key_filename = "~/.ssh/Cloud7745"
 
+#sudo fab deploy:host=ubuntu@www.abfahrt.cn
 
 def deploy():
     site_folder='/home/%s/sites/%s' % (env.user,env.host)

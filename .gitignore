@@ -7,3 +7,4 @@ accounts/static/
 accounts/tests/
 functional_tests/
 lists/tests/
+viewInfo/mongodbInfo.py
