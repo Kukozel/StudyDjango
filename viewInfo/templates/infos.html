@@ -318,7 +318,7 @@
                                                         学历
                                                     </th>
                                                     <th>
-                                                        专业类别
+                                                        专业类型
                                                     </th>
                                                     <th>
                                                         毕业时间
@@ -332,14 +332,14 @@
                                                 <tr class="success">
                                                     <script type="text/javascript">
                                                         var Dict = {{ each|safe }};
-                                                        dic = new Array();
-                                                        for (info in Dict) {
-                                                            dic[dic.length] = info
-                                                        }
-                                                        for (i = 0; i < 4; i++) {
-                                                            str = '<td>' + Dict[dic[i]] + '</td>';
-                                                            document.write(str);
-                                                        }
+                                                        str = '<td>' + Dict['学历'] + '</td>';
+                                                        document.write(str);
+                                                        str = '<td>' + Dict['专业类型'] + '</td>';
+                                                        document.write(str);
+                                                        str = '<td>' + Dict['毕业时间'] + '</td>';
+                                                        document.write(str);
+                                                        str = '<td>' + Dict['学制'] + '</td>';
+                                                        document.write(str);
                                                     </script>
                                                 </tr>
                                                 </tbody>
@@ -377,14 +377,14 @@
                                                 <tr class="success">
                                                     <script type="text/javascript">
                                                         var Dict = {{ each|safe }};
-                                                        dic = new Array();
-                                                        for (info in Dict) {
-                                                            dic[dic.length] = info
-                                                        }
-                                                        for (i = 0; i < 4; i++) {
-                                                            str = '<td>' + Dict[dic[i]] + '</td>';
-                                                            document.write(str);
-                                                        }
+                                                        str = '<td>' + Dict['所在单位'] + '</td>';
+                                                        document.write(str);
+                                                        str = '<td>' + Dict['职位名称'] + '</td>';
+                                                        document.write(str);
+                                                        str = '<td>' + Dict['单位行业'] + '</td>';
+                                                        document.write(str);
+                                                        str = '<td>' + Dict['时间'] + '</td>';
+                                                        document.write(str);
                                                     </script>
                                                 </tr>
                                                 </tbody>
@@ -401,11 +401,7 @@
                                                 <tr class="success">
                                                     <script type="text/javascript">
                                                         var Dict = {{ each|safe }};
-                                                        dic = new Array();
-                                                        for (info in Dict) {
-                                                            dic[dic.length] = info
-                                                        }
-                                                        str = '<td>' + Dict[dic[4]] + '</td>';
+                                                        str = '<td>' + Dict['工作内容/工作业绩'] + '</td>';
                                                         document.write(str);
                                                     </script>
                                                 </tr>
