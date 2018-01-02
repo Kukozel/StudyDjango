@@ -35,6 +35,3 @@ class Info(Document):
     major= StringField()
     email= StringField()
     meta = { 'collection': 'infos'} # 指明连接数据库的哪张表
-
-for i in Info.objects[:10]: # 测试是否连接成功
-    print(i.education[0])
