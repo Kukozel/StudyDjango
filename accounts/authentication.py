@@ -6,12 +6,13 @@ PERSONA_VARIFY_URL='/accounts/login'
 
 class PersonaAuthenticationBackend(object):
 
-    def authenticate(self,assertion):
-        eamil=assertion
+    def authenticate(self,email,password):
+        self.email=email;
+        self.password=password;
         try:
-            return User.objects.get(email=eamil)
+            return User.objects.get(email=self.email,password=self.password)
         except User.DoesNotExist:
-            return User.objects.create(email=eamil)
+            return None
 
     def get_user(self,email):
         try:

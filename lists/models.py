@@ -11,7 +11,10 @@ class List(models.Model):
 
     @property
     def name(self):
-        return self.item_set.first().text
+        try:
+            return self.item_set.first().text
+        except AttributeError:
+            return
 
     @staticmethod
     def create_new(first_item_text, owner=None):

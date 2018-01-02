@@ -5,7 +5,8 @@ User=get_user_model()
 
 # Create your views here.
 def persona_login(request):
-    user=authenticate(assertion=request.POST['assertion'])
+    user=authenticate(email=request.POST['email'],password=request.POST['password'])
     if(user):
         login(request,user)
-    return HttpResponse('okay')
+        return HttpResponse('okay')
+    return HttpResponse('error')
